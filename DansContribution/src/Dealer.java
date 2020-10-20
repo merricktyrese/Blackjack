@@ -4,10 +4,12 @@ public class Dealer extends Person {
     public Person player;
     public Hand hand;
     public Deck deck;
+    public String name;
 
-    public Dealer (Hand hand, Deck, deck) {
+    public Dealer (Hand hand, Deck deck) {
         this.hand = hand;
         this.deck = deck;
+        this.name = "Dealer";
     }
 
     public static Dealer startGame(Hand hand, Deck deck) {
@@ -41,9 +43,9 @@ public class Dealer extends Person {
         return hand.viewFirst();
     }
 
-    public Hand viewHand() {
-        return hand;
-    }
+//    public Hand viewHand() {
+//        return hand;
+//    }
 
     @Override public String toString() {
         return hand.toString();
