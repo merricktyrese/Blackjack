@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Dealer extends Player {
     public Player player;
-    private Hand hand;
+    public Hand hand;
     public Deck deck;
     public String name;
 
@@ -19,6 +19,7 @@ public class Dealer extends Player {
     public void hit() {
         Card c = Deck.getNext();
         hand.addCard(c);
+        Deck.removeCard();
     }
 
     public void newDeck() {
