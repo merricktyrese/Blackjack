@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
-    private List<Card> cardDeck = new ArrayList<>(208);
+    private static List<Card> cardDeck = new ArrayList<>(208);
 
     public Deck() {
        cardDeck = createDeck();
@@ -12,7 +12,7 @@ public class Deck {
 
 
 
-    private ArrayList<Card> createDeck(){
+    public static ArrayList<Card> createDeck(){
          ArrayList<Card> cards = new ArrayList<>(208);
         for(int i=0;i<4;i++){
             for(Suit s:Suit.values()){
@@ -25,8 +25,24 @@ public class Deck {
         return cards;
     }
 
+    public static Card getNext() {
+        return cardDeck.get(0);
+    }
+
+    public static void removeCard(){
+        cardDeck.remove(0);
+    }
+
     public void wash(){
         Collections.shuffle(cardDeck);
+    }
+
+    public boolean isEmpty() {
+        if (cardDeck.isEmpty()){
+            return true;
+        } else{
+            return false;
+        }
     }
 
 //    public static void main(String[] args) {
