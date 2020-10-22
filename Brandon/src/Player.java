@@ -20,6 +20,7 @@ public class Player {
     public void hit(){
         Card c = Deck.getNext();
         hand.addCard(c);
+        Deck.removeCard();
     }
 
     //public void Hit{
