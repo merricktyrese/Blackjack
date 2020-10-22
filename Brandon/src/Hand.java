@@ -7,8 +7,11 @@ public class Hand {
         this.hand = hand;
     }
 
+    public Hand() {
+    }
+
     public static Hand newHand() {
-        return new Hand(new Arraylist<Card>());
+        return new Hand(new ArrayList<Card>());
     }
 
     public void addCard (Card c) {
@@ -18,7 +21,16 @@ public class Hand {
     public int getHandValue() {
         int value = 0;
         for (Card c : hand) {
-            value += c.getRank();
+            value += c.cardValue();
         }
+        return value;
+    }
+
+    public void bust() {
+        hand.clear();
+    }
+
+    public Card viewFirst() {
+        return hand.get(0);
     }
 }
