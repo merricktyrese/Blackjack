@@ -36,24 +36,41 @@ public class Casino {
         System.out.println();
         System.out.println("the dealer is showing a: " + dealer.hand.viewFirst());
         System.out.println();
-        System.out.print("Hit or Stay: ");
-        Scanner input = new Scanner(System.in);
-        String choice = input.nextLine();
 
-        while (choice.equals("hit")) {
-            player.hit();
-            Thread.sleep(1000);
-            System.out.println(player.hand.hand);
-            if (player.hand.getHandValue() > 21) {
-                System.out.println("you bust with " + player.hand.getHandValue());
-                break;
+        if(player.hand.getHandValue() == 21){
+
+            System.out.println("CONGRATULATIONS, you got blackjack");
+
+        } else{
+
+            System.out.print("would you like to hit, stay, or double down: ");
+            Scanner input = new Scanner(System.in);
+            String choice = input.nextLine();
+
+            if (choice.equals("double down")){
+                bet = bet*2;
+                player.hit();
+                System.out.println(player.hand.hand);
+                System.out.println("You have doubled down. you bet is now $" + bet + " and you stay with " + player.hand.getHandValue());
+            } else{
+                while (choice.equals("hit")) {
+                    player.hit();
+                    Thread.sleep(1000);
+                    System.out.println(player.hand.hand);
+
+                    if (player.hand.getHandValue() > 21) {
+                        System.out.println("you bust with " + player.hand.getHandValue());
+                        break;
+                    }
+
+                    System.out.println("Your hand value is: " + player.hand.getHandValue() + " what would you like to do next?(hit/stay)");
+                    choice = input.nextLine();
+                }
             }
-            System.out.println("Your hand value is: " + player.hand.getHandValue() + " what would you like to do next?(hit/stay)");
-            choice = input.nextLine();
         }
 
         System.out.println("The dealer has: " + dealer.hand.hand);
-        Thread.sleep(3000);
+        Thread.sleep(2000);
 
         if (dealer.hand.getHandValue() == 21){
             System.out.println("Dealer got blackjack. Sucks to suck.");
@@ -62,16 +79,16 @@ public class Casino {
             if (dealer.hand.getHandValue() > 21) {
                 System.out.println("The dealer bust with " + dealer.hand.getHandValue());
                 System.out.println("The dealer has: " + dealer.hand.hand);
-                Thread.sleep(3000);
+                Thread.sleep(2000);
             }
 
             if (dealer.hand.getHandValue() < 17) {
                 dealer.hit();
                 System.out.println("The dealer has: " + dealer.hand.hand);
-                Thread.sleep(3000);
+                Thread.sleep(2000);
             } else {
                 System.out.println("The dealer stays with " + dealer.hand.getHandValue());
-                Thread.sleep(3000);
+                Thread.sleep(2000);
                 break;
             }
         }
@@ -99,6 +116,10 @@ public class Casino {
             playagain = getInput.nextLine();
         }
         System.out.println("OK, you have left the table with $" + player.chips);
+        if (player.chips < 0){
+            System.out.println();
+            System.out.println("It seems you owe us more money than you own, we will now be taking your legs.");
+        }
     }
 }
 
