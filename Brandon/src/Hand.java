@@ -20,8 +20,15 @@ public class Hand {
 
     public int getHandValue() {
         int value = 0;
+        int aces = 0;
         for (Card c : hand) {
             value += c.cardValue();
+            if (c.cardValue() == 11){
+                aces++;
+            }
+        }
+        if (value > 21 && aces > 0){
+            value-= 10 * aces;
         }
         return value;
     }

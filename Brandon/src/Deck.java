@@ -29,6 +29,10 @@ public class Deck {
         return cardDeck.get(0);
     }
 
+    public static void removeCard(){
+        cardDeck.remove(0);
+    }
+
     public void wash(){
         Collections.shuffle(cardDeck);
     }
