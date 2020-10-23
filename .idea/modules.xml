@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
-      <module fileurl="file://$PROJECT_DIR$/Blackjack.iml" filepath="$PROJECT_DIR$/Blackjack.iml" />
-=======
       <module fileurl="file://$PROJECT_DIR$/.idea/Blackjack.iml" filepath="$PROJECT_DIR$/.idea/Blackjack.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Blackjack_kai/Blackjack_kai.iml" filepath="$PROJECT_DIR$/Blackjack_kai/Blackjack_kai.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Brandon/Brandon.iml" filepath="$PROJECT_DIR$/Brandon/Brandon.iml" />
-      <module fileurl="file://$PROJECT_DIR$/DansContribution/DansContribution.iml" filepath="$PROJECT_DIR$/DansContribution/DansContribution.iml" />
->>>>>>> Dan
     </modules>
   </component>
 </project>
