@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Casino {
+
     public static void main(String[] args) throws InterruptedException {
 
         System.out.println("Welcome to Blackjack");
